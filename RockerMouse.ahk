@@ -3,15 +3,11 @@
 #SingleInstance force
 SendMode Input
 
-XButton1::
-XButton2::			
-
-#If GetKeyState("XButton1", "P")
-LButton::Esc
-RButton::!F4
-
-#If GetKeyState("XButton2", "P")
-LButton::XButton1
-RButton::XButton2
-WheelDown::Tab
-WheelUp::+Tab
+XButton2 & LButton::Send {XButton1}
+XButton2 & RButton::Send {XButton2}
+XButton2 & WheelUp::Send ^{PgUp}
+XButton2 & WheelDown::Send ^{PgDn}
+XButton1 & LButton::Send {Esc}
+XButton1 & RButton::Send !{F4}
+XButton1 & WheelDown::Send {Tab}
+XButton1 & WheelUp::Send +{Tab}
